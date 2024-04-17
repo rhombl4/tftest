@@ -41,7 +41,7 @@ resource "aws_instance" "ec2_instance" {
 
 resource "aws_lb" "nlb" {
   load_balancer_type = "network"
-  subnets            = [aws_subnet.subnet.id]
+  subnets            = [aws_subnet.subnet.id, aws_subnet.subnet2.id]
 }
 
 resource "aws_eip" "nlb_eip" {
