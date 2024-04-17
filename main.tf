@@ -25,7 +25,8 @@ resource "aws_db_instance" "rds_instance" {
   password             = "password"
   db_subnet_group_name = aws_db_subnet_group.db_subnet.id
   skip_final_snapshot  = true
-  # availability_zone    = "eu-central-1a"
+  identifier           = "rds-${var.environment_name}"
+
 }
 
 resource "aws_db_subnet_group" "db_subnet" {
@@ -37,6 +38,9 @@ resource "aws_instance" "ec2_instance" {
   ami           = "ami-0233214e13e500f77"
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.subnet.id
+  tags = {
+    Name = "MyEC2Instance-${var.environment_name}"
+  }
 }
 
 resource "aws_lb" "nlb" {
