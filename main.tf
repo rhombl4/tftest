@@ -36,7 +36,7 @@ resource "aws_db_subnet_group" "db_subnet" {
 
 resource "aws_instance" "ec2_instance" {
   ami           = "ami-0233214e13e500f77"
-  instance_type = "t3.micro"
+  instance_type = var.ec2_type
   subnet_id     = aws_subnet.subnet.id
   tags = {
     Name = "MyEC2Instance-${var.environment_name}"
