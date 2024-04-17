@@ -1,9 +1,5 @@
 terraform {
   cloud {
-    organization = "studytube"
-    workspaces {
-      name = "tftest"
-    }
   }
   required_version = ">= 1.0"
   required_providers {
@@ -12,12 +8,6 @@ terraform {
       version = "5.45.0"
     }
   }
-
-  # backend "s3" {
-  #   bucket = "your-terraform-state-bucket-tfctest"
-  #   key    = "terraform.tfstate"
-  #   region = "eu-central-1"
-  # }
 }
 
 provider "aws" {
