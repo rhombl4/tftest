@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "studytube"
+    workspaces {
+      name = "tftest"
+    }
+  }
   required_version = ">= 1.0"
   required_providers {
     aws = {
@@ -7,11 +13,11 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "your-terraform-state-bucket-tfctest"
-    key    = "terraform.tfstate"
-    region = "eu-central-1"
-  }
+  # backend "s3" {
+  #   bucket = "your-terraform-state-bucket-tfctest"
+  #   key    = "terraform.tfstate"
+  #   region = "eu-central-1"
+  # }
 }
 
 provider "aws" {
