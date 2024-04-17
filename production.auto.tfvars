@@ -1,1 +1,1 @@
-ec2_type = t4a.micro
+ec2_type = "t4a.micro"
