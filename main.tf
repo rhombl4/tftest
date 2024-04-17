@@ -18,7 +18,7 @@ resource "aws_subnet" "subnet2" {
 }
 
 resource "aws_db_instance" "rds_instance" {
-  instance_class       = "db.t3.micro"
+  instance_class       = "db.t4g.micro"
   engine               = "mysql"
   allocated_storage    = 20
   username             = "dbadmin"
